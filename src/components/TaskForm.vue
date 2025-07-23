@@ -7,7 +7,7 @@ export default {
     }
   },
   methods: {
-    addTodo() {
+    addTask() {
       this.taskId = crypto.randomUUID()
       this.$parent.$data.tasks.push({
         id: this.taskId,
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <form class="flex items-center gap-2.5 px-2" @submit.prevent="addTodo">
+  <form class="flex items-center gap-2.5 px-2" @submit.prevent="addTask">
     <input
       v-model="taskName"
       type="text"
