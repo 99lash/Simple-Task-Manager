@@ -7,10 +7,10 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header className="container mx-auto px-4">
     <nav className="navbar">
       <div className="navbar-start">
-        <a href="/" className="text-3xl font-bold">Simple Task Manager</a>
+        <a href="/" className="text-2xl font-bold">Simple Task Manager</a>
       </div>
       <div className="navbar-end">
         <div class="dropdown dropdown-end">
@@ -50,8 +50,8 @@ export default {
                 type="radio"
                 name="theme-dropdown"
                 class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Cyberpunk"
-                value="cyberpunk"
+                aria-label="Abyss"
+                value="Abyss"
               />
             </li>
             <li>
@@ -70,6 +70,51 @@ export default {
                 class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
                 aria-label="Aqua"
                 value="aqua"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Garden"
+                value="garden"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Luxury"
+                value="luxury"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Pastel"
+                value="pastel"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Business"
+                value="business"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Synthwave"
+                value="synthwave"
               />
             </li>
           </ul>

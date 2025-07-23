@@ -4,9 +4,10 @@ import App from './App.vue'
 createApp(App).mount('#app');
 
 /* theme */
-
 let currentTheme = localStorage.getItem('theme') || 'default';
 let themes = document.querySelectorAll('.theme-controller');
+
+// console.log(themes);
 
 themes.forEach((t) => {
   t.addEventListener('click', e => {
@@ -23,5 +24,4 @@ function setAppTheme(currentTheme) {
   const capitalizedCurrentTheme = currentTheme.charAt(0).toLocaleUpperCase() + currentTheme.slice(1);
   document.querySelector('#theme-name').textContent = `Theme: ${capitalizedCurrentTheme}`;
 }
-
 setAppTheme(currentTheme);
