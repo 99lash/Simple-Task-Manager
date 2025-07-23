@@ -7,13 +7,25 @@ export default {
   data() {
     return {
       tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+      selectedFilter: 'All',
     }
   },
-  methods: {},
+  methods: {
+    handleFilterChange(newFilter) {
+      this.selectedFilter = newFilter
+    },
+  },
   components: {
     TaskForm,
     TaskFilter,
     TaskList,
+  },
+  computed: {
+    filterTasks() {
+      if (this.selectedFilter === 'completed') return this.tasks.filter((t) => t.done === true)
+      if (this.selectedFilter === 'in progress') return this.tasks.filter((t) => t.done === false)
+      return this.tasks
+    },
   },
 }
 </script>
@@ -25,9 +37,9 @@ export default {
 
     <div className="mt-10">
       <!-- TASK FILTER -->
-      <TaskFilter :unfilteredTasks="tasks" />
+      <TaskFilter @filter-change="handleFilterChange" />
       <!-- TASK LIST -->
-      <TaskList :tasks="this.tasks" />
+      <TaskList :tasks="filterTasks" />
     </div>
   </main>
 </template>

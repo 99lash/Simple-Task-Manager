@@ -2,33 +2,16 @@
 export default {
   data() {
     return {
-      tasks: this.$parent.$data.tasks,
+      taskStatus: {
+        all: 'all',
+        inProgress: 'in progress',
+        completed: 'completed',
+      },
     }
   },
-  props: {
-    unfilteredTasks: Array,
-  },
-  created() {
-    console.log(this.tasks)
-  },
   methods: {
-    filterTasks(type) {
-      switch (type) {
-        case 'all':
-          this.$parent.$data.tasks = this.$props.unfilteredTasks
-          break
-
-        case 'inprogress':
-          this.$parent.$data.tasks = this.$parent.$data.tasks.filter((t) => t.done === false)
-          break
-
-        case 'completed':
-          this.$parent.$data.tasks = this.$parent.$data.tasks.filter((t) => t.done === true)
-          break
-
-        default:
-          break
-      }
+    getSelectedFilter(newFilter) {
+      this.$emit('filter-change', newFilter)
     },
   },
 }
@@ -38,19 +21,19 @@ export default {
   <div className="flex items-center gap-2.5">
     <div
       class="btn btn-ghost border-secondary-content rounded-sm flex-1"
-      @click="filterTasks('all')"
+      @click="getSelectedFilter(taskStatus.all)"
     >
       All
     </div>
     <div
       class="btn btn-ghost border-secondary-content rounded-sm flex-1"
-      @click="filterTasks('inprogress')"
+      @click="getSelectedFilter(taskStatus.inProgress)"
     >
       In Progress
     </div>
     <div
       class="btn btn-ghost border-secondary-content rounded-sm flex-1"
-      @click="filterTasks('completed')"
+      @click="getSelectedFilter(taskStatus.completed)"
     >
       Completed
     </div>
