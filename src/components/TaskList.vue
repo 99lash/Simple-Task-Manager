@@ -15,6 +15,14 @@ export default {
       })
       localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
     },
+    editTask(task) {
+      this.$parent.$data.tasks = this.$props.tasks.map((t) => {
+        if (t.id === task.id) t.name = task.name
+        return t
+      })
+      console.log(task)
+      localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
+    },
   },
   computed: {
     reversedTasks() {
@@ -45,8 +53,9 @@ export default {
             </span>
           </div>
           <div className="card-actions">
-            <div className="btn btn-ghost">
-              <!-- EDIT -->
+            <!-- EDIT -->
+
+            <label for="edit" className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="30px"
@@ -58,9 +67,38 @@ export default {
                   d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"
                 />
               </svg>
+            </label>
+
+            <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="edit" class="modal-toggle" />
+            <div class="modal" role="dialog">
+              <div class="modal-box">
+                <div classname="flex flex-col items-center gap-2.5 px-2">
+                  <span className="text-left w-[100%] p-2"> Edit Task </span>
+                  <input
+                    type="text"
+                    name="editTask"
+                    id="editTask"
+                    className="border-solid border-b-1 border-primary-secondary-content focus-within:outline-0 w-[100%] p-2"
+                    v-model="task.name"
+                  />
+                  <div className="modal-action w-[100%]">
+                    <label for="edit" className="btn btn-error" tabindex="0">Cancel</label>
+                    <label
+                      for="edit"
+                      className="btn btn-success"
+                      @click="editTask(task)"
+                      tabindex="0"
+                    >
+                      Save
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- DELETE -->
             <div className="btn btn-ghost" @click="removeTask(task)">
-              <!-- DELETE -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="30px"
