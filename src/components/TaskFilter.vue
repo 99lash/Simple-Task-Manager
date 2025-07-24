@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <div class="tabs tabs-lift justify-end">
+  <div class="tabs tabs-border justify-end">
     <input
       class="tab"
       type="radio"
