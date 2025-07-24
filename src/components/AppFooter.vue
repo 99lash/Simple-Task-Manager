@@ -4,14 +4,14 @@
       <aside>
         <p>
           Made with ❤️ by
-          <a href="https://github.com/99lash"> 99lash </a>
+          <a href="https://github.com/99lash" class="font-bold"> 99lash </a>
         </p>
       </aside>
       <nav class="grid-flow-col gap-4">
         <a href="https://github.com/99lash">
           <Github />
         </a>
-        <a href="https://github.com/99lash">
+        <a href="https://www.instagram.com/xshr.21">
           <Instagram />
         </a>
       </nav>
