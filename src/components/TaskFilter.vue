@@ -4,7 +4,7 @@ export default {
     return {
       taskStatus: {
         all: 'all',
-        inProgress: 'in progress',
+        pending: 'pending',
         completed: 'completed',
       },
     }
@@ -18,24 +18,30 @@ export default {
 </script>
 
 <template>
-  <div className="flex items-center gap-2.5">
-    <div
-      class="btn btn-ghost border-secondary-content rounded-sm flex-1"
+  <div className="tabs tabs-border justify-end">
+    <input
+      className="tab"
+      type="radio"
+      name="options"
+      aria-label="All"
+      checked
       @click="getSelectedFilter(taskStatus.all)"
-    >
-      All
-    </div>
-    <div
-      class="btn btn-ghost border-secondary-content rounded-sm flex-1"
-      @click="getSelectedFilter(taskStatus.inProgress)"
-    >
-      In Progress
-    </div>
-    <div
-      class="btn btn-ghost border-secondary-content rounded-sm flex-1"
+    />
+    <!-- <div className="divider divider-horizontal"></div> -->
+    <input
+      className="tab"
+      type="radio"
+      name="options"
+      aria-label="Pending"
+      @click="getSelectedFilter(taskStatus.pending)"
+    />
+    <!-- <div className="divider divider-horizontal"></div> -->
+    <input
+      className="tab"
+      type="radio"
+      name="options"
+      aria-label="Completed"
       @click="getSelectedFilter(taskStatus.completed)"
-    >
-      Completed
-    </div>
+    />
   </div>
 </template>
