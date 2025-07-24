@@ -1,11 +1,3 @@
-<script>
-export default {
-  data() {
-    return {}
-  },
-}
-</script>
-
 <template>
   <header className="container mx-auto px-4">
     <nav className="navbar">
@@ -16,17 +8,12 @@ export default {
         <div class="dropdown dropdown-end">
           <div tabindex="0" role="button" class="btn m-1">
             <span id="theme-name">Theme: Default</span>
-            <svg
-              width="12px"
-              height="12px"
-              class="inline-block h-2 w-2 fill-current opacity-60"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 2048 2048"
-            >
-              <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
-            </svg>
+            <font-awesome-icon icon="fa-solid fa-caret-down" />
           </div>
-          <ul tabindex="0" class="dropdown-content bg-base-300 max-w-40 w-40 z-1 p-2 shadow-2xl">
+          <ul
+            tabindex="0"
+            class="dropdown-content bg-base-300 max-w-40 w-40 max-h-40 z-10 p-2 shadow-2xl overflow-y-auto"
+          >
             <li>
               <input
                 type="radio"

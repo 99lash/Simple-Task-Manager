@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <main className="container mx-auto px-4 min-h-screen mt-10">
+  <main className="container mx-auto px-4 min-h-screen mt-20">
     <!-- TASK FORM -->
     <TaskForm />
 
@@ -48,7 +48,11 @@ export default {
       <!-- TASK FILTER -->
       <TaskFilter @filter-change="handleFilterChange" />
       <!-- TASK LIST -->
-      <TaskList :tasks="filterTasks" @status-change="handleTaskStatusChange" />
+      <TaskList
+        :tasks="tasks"
+        :filteredTasks="filterTasks"
+        @status-change="handleTaskStatusChange"
+      />
     </div>
   </main>
 </template>
