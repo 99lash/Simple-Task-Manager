@@ -40,11 +40,11 @@ export default {
 </script>
 
 <template>
-  <main className="container mx-auto px-4 min-h-screen mt-20">
+  <main class="container mx-auto px-4 min-h-screen mt-20">
     <!-- TASK FORM -->
     <TaskForm />
 
-    <div className="mt-10">
+    <div class="mt-10">
       <!-- TASK FILTER -->
       <TaskFilter @filter-change="handleFilterChange" />
       <!-- TASK LIST -->

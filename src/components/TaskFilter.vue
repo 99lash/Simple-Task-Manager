@@ -18,26 +18,26 @@ export default {
 </script>
 
 <template>
-  <div className="tabs tabs-border justify-end">
+  <div class="tabs tabs-lift justify-end">
     <input
-      className="tab"
+      class="tab"
       type="radio"
       name="options"
       aria-label="All"
       checked
       @click="getSelectedFilter(taskStatus.all)"
     />
-    <!-- <div className="divider divider-horizontal"></div> -->
+    <!-- <div class="divider divider-horizontal"></div> -->
     <input
-      className="tab"
+      class="tab"
       type="radio"
       name="options"
       aria-label="Pending"
       @click="getSelectedFilter(taskStatus.pending)"
     />
-    <!-- <div className="divider divider-horizontal"></div> -->
+    <!-- <div class="divider divider-horizontal"></div> -->
     <input
-      className="tab"
+      class="tab"
       type="radio"
       name="options"
       aria-label="Completed"

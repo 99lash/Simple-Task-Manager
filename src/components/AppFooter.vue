@@ -1,6 +1,6 @@
 <template>
-  <footer className="bg-neutral text-neutral-content mt-12">
-    <div className="footer footer-horizontal justify-between container mx-auto p-6 items-center">
+  <footer class="bg-neutral text-neutral-content mt-12">
+    <div class="footer footer-horizontal justify-between container mx-auto p-6 items-center">
       <aside>
         <p>
           Made with ❤️ by

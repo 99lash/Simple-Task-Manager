@@ -29,9 +29,9 @@ export default {
       name="task"
       id="task"
       placeholder="Add a task"
-      className="border-solid border-b-1 border-primary-secondary-content focus-within:outline-0 flex-1 p-2"
+      class="border-solid border-b-1 border-primary-secondary-content focus-within:outline-0 flex-1 p-2"
       required
     />
-    <button type="submit" className="btn btn-primary px-12">Add</button>
+    <button type="submit" class="btn btn-primary px-12">Add</button>
   </form>
 </template>

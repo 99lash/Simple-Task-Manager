@@ -32,50 +32,50 @@ export default {
 </script>
 
 <template>
-  <div className="grid mt-10 gap-5">
-    <div v-for="task in reversedTasks" :key="task.id" className="card bg-base-200 shadow-sm">
-      <div className="flex flex-row items-center gap-2.5">
-        <div className="card-actions items-center pl-6">
+  <div class="grid mt-10 gap-5">
+    <div v-for="task in reversedTasks" :key="task.id" class="card bg-base-200 shadow-sm">
+      <div class="flex flex-row items-center gap-2.5">
+        <div class="card-actions items-center pl-6">
           <input
             type="checkbox"
             name="done"
             id="done"
-            className="checkbox checkbox-secondary-content checkbox-lg"
+            class="checkbox checkbox-secondary-content checkbox-lg"
             @click="getTaskStatus(task)"
             :checked="task.done"
           />
         </div>
-        <div className="card-body flex-row items-center justify-between">
-          <div className="card-title">
+        <div class="card-body flex-row items-center justify-between">
+          <div class="card-title">
             <span :class="{ done: task.done }">
               {{ task.name }}
             </span>
           </div>
-          <div className="card-actions">
+          <div class="card-actions">
             <!-- EDIT -->
-            <label :for="`edit-${task.id}`" className="btn btn-ghost">
+            <label :for="`edit-${task.id}`" class="btn btn-ghost">
               <SquarePen class="text-info" />
             </label>
 
             <input type="checkbox" :id="`edit-${task.id}`" class="modal-toggle" />
             <div class="modal" role="dialog">
               <div class="modal-box">
-                <div classname="flex flex-col items-center gap-2.5 px-2">
-                  <span className="text-left w-[100%] p-2"> Edit Task </span>
+                <div class="flex flex-col items-center gap-2.5 px-2">
+                  <span class="text-left w-[100%] p-2"> Edit Task </span>
                   <input
                     type="text"
                     name="editTask"
                     id="editTask"
-                    className="border-solid border-b-1 border-primary-secondary-content focus-within:outline-0 w-[100%] p-2"
+                    class="border-solid border-b-1 border-primary-secondary-content focus-within:outline-0 w-[100%] p-2"
                     v-model="task.name"
                   />
-                  <div className="modal-action w-[100%]">
-                    <label :for="`edit-${task.id}`" className="btn btn-error" tabindex="0"
+                  <div class="modal-action w-[100%]">
+                    <label :for="`edit-${task.id}`" class="btn btn-error" tabindex="0"
                       >Cancel</label
                     >
                     <label
                       :for="`edit-${task.id}`"
-                      className="btn btn-success"
+                      class="btn btn-success"
                       @click="editTask(task)"
                       tabindex="0"
                     >
@@ -87,7 +87,7 @@ export default {
             </div>
 
             <!-- DELETE -->
-            <div className="btn btn-ghost" @click="removeTask(task)">
+            <div class="btn btn-ghost" @click="removeTask(task)">
               <Trash class="text-error" />
             </div>
           </div>
