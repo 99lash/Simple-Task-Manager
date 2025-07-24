@@ -8,7 +8,7 @@
         <div class="dropdown dropdown-end">
           <div tabindex="0" role="button" class="btn m-1">
             <span id="theme-name">Theme: Default</span>
-            <font-awesome-icon icon="fa-solid fa-caret-down" />
+            <ChevronDown class="w-5" />
           </div>
           <ul
             tabindex="0"

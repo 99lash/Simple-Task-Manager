@@ -7,8 +7,15 @@ import App from './App.vue';
 
 // library.add(fas, fab);
 
+import { Instagram, Github, SquarePen, Trash, ChevronDown } from 'lucide-vue-next';
+
 createApp(App)
   // .component('font-awesome-icon', FontAwesomeIcon)
+  .component('Instagram', Instagram)
+  .component('Github', Github)
+  .component('SquarePen', SquarePen)
+  .component('Trash', Trash)
+  .component('ChevronDown', ChevronDown)
   .mount('#app');
 
 /* theme */

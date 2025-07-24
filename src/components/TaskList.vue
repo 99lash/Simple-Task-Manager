@@ -54,11 +54,7 @@ export default {
           <div className="card-actions">
             <!-- EDIT -->
             <label :for="`edit-${task.id}`" className="btn btn-ghost">
-              <font-awesome-icon
-                icon="fa-solid fa-pen-to-square"
-                size="xl"
-                style="color: var(--color-info)"
-              />
+              <SquarePen class="text-info" />
             </label>
 
             <input type="checkbox" :id="`edit-${task.id}`" class="modal-toggle" />
@@ -92,11 +88,7 @@ export default {
 
             <!-- DELETE -->
             <div className="btn btn-ghost" @click="removeTask(task)">
-              <font-awesome-icon
-                icon="fa-solid fa-trash"
-                size="xl"
-                style="color: var(--color-error)"
-              />
+              <Trash class="text-error" />
             </div>
           </div>
         </div>

@@ -9,10 +9,10 @@
       </aside>
       <nav class="grid-flow-col gap-4">
         <a href="https://github.com/99lash">
-          <font-awesome-icon icon="fa-brands fa-github" size="xl" />
+          <Github />
         </a>
         <a href="https://github.com/99lash">
-          <font-awesome-icon icon="fa-brands fa-instagram" size="xl" />
+          <Instagram />
         </a>
       </nav>
     </div>
