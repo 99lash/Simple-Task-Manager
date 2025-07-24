@@ -15,7 +15,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@fortawesome/fontawesome-svg-core/package.json': '/src/fake-fontawesome-pkg.js',
     },
   },
 });
