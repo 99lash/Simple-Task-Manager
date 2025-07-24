@@ -1,10 +1,10 @@
 <template>
-  <header className="container mx-auto px-4">
-    <nav className="navbar">
-      <div className="navbar-start">
-        <a href="/" className="text-2xl font-bold">Simple Task Manager</a>
+  <header class="container mx-auto px-4">
+    <nav class="navbar">
+      <div class="navbar-start">
+        <a href="/" class="text-2xl font-bold">Simple Task Manager</a>
       </div>
-      <div className="navbar-end">
+      <div class="navbar-end">
         <div class="dropdown dropdown-end">
           <div tabindex="0" role="button" class="btn m-1">
             <span id="theme-name">Theme: Default</span>
@@ -37,8 +37,8 @@
                 type="radio"
                 name="theme-dropdown"
                 class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Abyss"
-                value="Abyss"
+                aria-label="Corporate"
+                value="corporate"
               />
             </li>
             <li>
