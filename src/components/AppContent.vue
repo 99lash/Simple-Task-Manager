@@ -14,6 +14,15 @@ export default {
     handleFilterChange(newFilter) {
       this.selectedFilter = newFilter
     },
+    handleTaskStatusChange(task) {
+      this.tasks.forEach((t) => {
+        if (t.id === task.id) {
+          t.done = !t.done
+          return
+        }
+      })
+      localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    },
   },
   components: {
     TaskForm,
@@ -23,7 +32,7 @@ export default {
   computed: {
     filterTasks() {
       if (this.selectedFilter === 'completed') return this.tasks.filter((t) => t.done === true)
-      if (this.selectedFilter === 'in progress') return this.tasks.filter((t) => t.done === false)
+      if (this.selectedFilter === 'pending') return this.tasks.filter((t) => t.done === false)
       return this.tasks
     },
   },
@@ -39,7 +48,7 @@ export default {
       <!-- TASK FILTER -->
       <TaskFilter @filter-change="handleFilterChange" />
       <!-- TASK LIST -->
-      <TaskList :tasks="filterTasks" />
+      <TaskList :tasks="filterTasks" @status-change="handleTaskStatusChange" />
     </div>
   </main>
 </template>

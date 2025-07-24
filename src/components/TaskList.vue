@@ -8,20 +8,18 @@ export default {
       this.$parent.$data.tasks = this.$props.tasks.filter((t) => t.id !== task.id)
       localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
     },
-    toggleTaskStatus(task) {
-      this.$parent.$data.tasks = this.$props.tasks.map((t) => {
-        if (t.id === task.id) t.done = !t.done
-        return t
-      })
-      localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
-    },
     editTask(task) {
-      this.$parent.$data.tasks = this.$props.tasks.map((t) => {
-        if (t.id === task.id) t.name = task.name
-        return t
+      this.$parent.$data.tasks.forEach((t) => {
+        if (t.id === task.id) {
+          t.name = task.name
+          return t
+        }
       })
       console.log(task)
       localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
+    },
+    getTaskStatus(task) {
+      this.$emit('status-change', task)
     },
   },
   computed: {
@@ -41,8 +39,8 @@ export default {
             type="checkbox"
             name="done"
             id="done"
-            className="checkbox checkbox-secondary checkbox-sm"
-            @click="toggleTaskStatus(task)"
+            className="checkbox checkbox-secondary-content checkbox-lg"
+            @click="getTaskStatus(task)"
             :checked="task.done"
           />
         </div>
@@ -54,8 +52,7 @@ export default {
           </div>
           <div className="card-actions">
             <!-- EDIT -->
-
-            <label for="edit" className="btn btn-ghost">
+            <label :for="`edit-${task.id}`" className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="30px"
@@ -69,8 +66,7 @@ export default {
               </svg>
             </label>
 
-            <!-- Put this part before </body> tag -->
-            <input type="checkbox" id="edit" class="modal-toggle" />
+            <input type="checkbox" :id="`edit-${task.id}`" class="modal-toggle" />
             <div class="modal" role="dialog">
               <div class="modal-box">
                 <div classname="flex flex-col items-center gap-2.5 px-2">
@@ -83,9 +79,11 @@ export default {
                     v-model="task.name"
                   />
                   <div className="modal-action w-[100%]">
-                    <label for="edit" className="btn btn-error" tabindex="0">Cancel</label>
+                    <label :for="`edit-${task.id}`" className="btn btn-error" tabindex="0"
+                      >Cancel</label
+                    >
                     <label
-                      for="edit"
+                      :for="`edit-${task.id}`"
                       className="btn btn-success"
                       @click="editTask(task)"
                       tabindex="0"
