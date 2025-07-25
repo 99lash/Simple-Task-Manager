@@ -2,6 +2,7 @@
 import TaskFilter from './TaskFilter.vue'
 import TaskForm from './TaskForm.vue'
 import TaskList from './TaskList.vue'
+// import ToastNotification from './ToastNotification.vue'
 
 export default {
   data() {
@@ -28,6 +29,7 @@ export default {
     TaskForm,
     TaskFilter,
     TaskList,
+    // ToastNotification,
   },
   computed: {
     filterTasks() {
@@ -53,6 +55,7 @@ export default {
         :filteredTasks="filterTasks"
         @status-change="handleTaskStatusChange"
       />
+      <!-- <ToastNotification /> -->
     </div>
   </main>
 </template>

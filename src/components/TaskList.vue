@@ -1,5 +1,10 @@
 <script>
 export default {
+  data() {
+    return {
+      name: '',
+    }
+  },
   props: {
     tasks: Array,
     filteredTasks: Array,
@@ -9,14 +14,17 @@ export default {
       this.$parent.$data.tasks = this.$props.tasks.filter((t) => t.id !== task.id)
       localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
     },
+    getEditedTask(e) {
+      this.name = e.target.value
+    },
     editTask(task) {
       this.$parent.$data.tasks.forEach((t) => {
         if (t.id === task.id) {
-          t.name = task.name
-          return t
+          t.name = this.name
+          console.log(t)
+          return
         }
       })
-      console.log(task)
       localStorage.setItem('tasks', JSON.stringify(this.$parent.$data.tasks))
     },
     getTaskStatus(task) {
@@ -67,12 +75,15 @@ export default {
                     name="editTask"
                     id="editTask"
                     class="border-solid border-b-1 border-primary-secondary-content focus-within:outline-0 w-[100%] p-2"
-                    v-model="task.name"
+                    :value="task.name"
+                    @input="getEditedTask"
                   />
                   <div class="modal-action w-[100%]">
+                    <!-- CANCEL -->
                     <label :for="`edit-${task.id}`" class="btn btn-error" tabindex="0"
                       >Cancel</label
                     >
+                    <!-- SAVE -->
                     <label
                       :for="`edit-${task.id}`"
                       class="btn btn-success"
