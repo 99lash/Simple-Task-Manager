@@ -10,10 +10,18 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vite.dev/config/).
 
+## Clone this repository
+
+```sh
+git clone https://github.com/99lash/Simple-Task-Manager.git
+cd Simple-Task-Manager
+```
+
 ## Project Setup
 
 ```sh
 npm install
+npm run format
 ```
 
 ### Compile and Hot-Reload for Development
